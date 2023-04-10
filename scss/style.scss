@@ -1,3 +1,306 @@
-header {
-    background-color: red($color: #000000);
+$NavbarPrincipal: #ffcc65;
+$Footer:#A3BB98;
+$categorias:#F0ECCF;
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  height: auto;
+  width: 100%;
+}
+
+/* barra de navegacion */
+
+.nav-wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $NavbarPrincipal;
+  padding: 1rem 1.5rem;
+  font-size: 15px;
+
+  .logo {
+    font-weight: 700;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    font-weight: bolder;
+  }
+
+  a img {
+    height: 25px;
+    width: 25px;
+    object-fit: cover;
+  }
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+
+  li a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+nav {
+  #toggle, label {
+    display: none;
+  }
+}
+
+/* index.html */
+
+/* banner */
+
+.banner img {
+  object-fit: cover;
+  width: 100%;
+  height: 700px;
+}
+
+/* Nuestra seleccion */
+
+.container-cards {
+  h3 {
+    text-align: center;
+    font-size: large;
+    margin-top: 20px;
+    font-size: 30px;
+  }
+
+  width: 100%;
+  height: auto;
+}
+
+.container-card {
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
+  gap: 40px;
+}
+
+.card {
+  margin-top: 50px;
+  padding: 40px;
+  border: 1px solid whitesmoke;
+  flex-direction: column;
+  background-color: whitesmoke;
+  border-radius: 20px;
+}
+
+.content {
+  text-align: center;
+
+  button {
+    background-color: #F0ECCF;
+    width: 90px;
+    height: 30px;
+    border-radius: 10px;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
+
+/* DELIVERY */
+
+.container-deliverys {
+  width: 100%;
+  height: auto;
+  background-image: url(../assets/img/Rectangle.png);
+  background-repeat: no-repeat;
+  background-position: left;
+
+  h3 {
+    margin: 10px;
+    text-align: center;
+    font-size: 40px;
+  }
+}
+
+.container-delivery {
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
+  gap: 100px;
+}
+
+/* FOOTER */
+
+.container-footer {
+  width: 100%;
+  background-color: #A3BB98;
+  height: auto;
+}
+
+.container-info {
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
+  gap: 200px;
+  height: 200px;
+  text-align: center;
+}
+
+.info {
+  h4 {
+    text-align: center;
+    margin: 20px;
+  }
+
+  ul li {
+    display: inline;
+    margin: 10px;
+    font-size: 20px;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+/* Login con Bootstrap */
+
+.bg {
+  background-image: url(../assets/img/login.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* NOSOTROS CON GRID */
+
+.grid {
+  display: grid;
+  width: 100%;
+  height: auto;
+  margin: 20px 20px 20px 20px;
+  padding: 50px;
+  grid-template-columns: 400px 400px  300px;
+  grid-template-rows: 400px 400px 300px;
+  grid-template-areas: "imagen imagen vision " "imagen imagen mision ";
+  gap: 100px;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.grid-sect-1 {
+  padding: 50px;
+  grid-area: imagen;
+  background-image: url(../assets/img/nosotros.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  font-size: 50px;
+}
+
+.grid-sect-2 {
+  grid-area: vision;
+  background-color: #d4cff0;
+  justify-content: center;
+  margin: 4px 0px 4px 0px;
+  display: flex;
+  padding: 40px;
+  border-radius: 40px;
+}
+
+.grid-sect-3 {
+  grid-area: mision;
+  background-color: #ffcc65;
+  justify-content: center;
+  margin-top: 30px;
+  display: flex;
+  padding: 40px;
+  border-radius: 40px;
+}
+
+/* Tutoriales */
+
+.container-videos {
+  width: 100%;
+  height: auto;
+
+  h2 {
+    font-size: 40px;
+    margin: 4px 4px 4px 4px;
+    text-align: center;
+  }
+}
+
+.tutorial {
+  height: auto;
+  display: flex;
+  width: 100%;
+  border-radius: 20px;
+  padding: 40px;
+  gap: 100px;
+}
+
+.video {
+  gap: 40px;
+  justify-content: left;
+}
+
+/* responsive */
+
+@media (max-width: 768px) {
+  .nav menu {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 0;
+  }
+
+  nav {
+    label {
+      display: inline-flex;
+      color: white;
+      cursor: pointer;
+    }
+
+    #toggle:checked ~ .menu {
+      height: 100%;
+    }
+  }
+
+  .container-info {
+    height: auto;
+    width: 100%;
+  }
+
+  /* video */
+
+  .video iframe {
+    width: 200px;
+    height: 200px;
+  }
+
+  .container-footer {
+    font-size: 20px;
+    gap: 2px;
+  }
 }
