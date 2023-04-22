@@ -2,6 +2,12 @@ $NavbarPrincipal: #ffcc65;
 $Footer:#A3BB98;
 $categorias:#F0ECCF;
 
+@mixin color-invertido{
+  background-color: rgb(235, 232, 232);
+  color: black;
+
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 * {
@@ -194,78 +200,198 @@ nav {
 
 /* NOSOTROS CON GRID */
 
+
+.container-titulo{
+  text-align: center;
+  margin: 20px;
+  display: flex;
+  font-size: large;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .grid {
   display: grid;
-  width: 100%;
+  width: 100;
   height: auto;
-  margin: 20px 20px 20px 20px;
-  padding: 50px;
-  grid-template-columns: 400px 400px  300px;
-  grid-template-rows: 400px 400px 300px;
-  grid-template-areas: "imagen imagen vision " "imagen imagen mision ";
-  gap: 100px;
+  margin: 20px;
+  padding: 40px;
+  grid-template-columns: 300px 300px 200px;
+  grid-template-rows:     300px 300px 200px;
+  grid-template-areas: "imagen imagen vision " 
+                        "imagen imagen mision ";
   justify-content: center;
   font-family: 'Roboto', sans-serif;
-}
+  grid-auto-flow: column;
+
 
 .grid-sect-1 {
-  padding: 50px;
-  grid-area: imagen;
-  background-image: url(../assets/img/nosotros.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  font-size: 50px;
+grid-area:imagen;
+background-size: cover;
+background-image: url(../assets/img/nosotros.png);
+
 }
 
-.grid-sect-2 {
+.grid-sect-2{
   grid-area: vision;
   background-color: #d4cff0;
   justify-content: center;
-  margin: 4px 0px 4px 0px;
-  display: flex;
-  padding: 40px;
-  border-radius: 40px;
+  margin: 4px;
+  align-items: center;
+
+  h3{
+    text-align: center;
+    margin: 20px;
+  }
+  p{
+    padding: 10px;
+    border-radius: 40px;
+    text-align: center;
+
+  }
 }
 
-.grid-sect-3 {
+.grid-sect-3{
   grid-area: mision;
-  background-color: #ffcc65;
+  background-color: #d4cff0;
   justify-content: center;
-  margin-top: 30px;
-  display: flex;
-  padding: 40px;
-  border-radius: 40px;
+  margin: 4px;
+  align-items: center;
+  
+
+  h3{
+    text-align: center;
+    margin: 20px;
+
+  }
+  p{
+    padding: 10px;
+    border-radius: 40px;
+    text-align: center;
+
+  }
+
+
+}
 }
 
 /* Tutoriales */
 
 .container-videos {
+  display:flex ;
   width: 100%;
   height: auto;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
 
   h2 {
     font-size: 40px;
     margin: 4px 4px 4px 4px;
     text-align: center;
   }
+
+  .tutorial {
+    
+    height: auto;
+    width: 100%;
+    padding: 20px;
+    background-color: #e5e7e4;
+    margin: 10px;
+    .video {
+
+
+      iframe{
+
+        width: auto;
+        
+
+      }
+    }
+    
+    .descripcion{
+    
+      margin: 4px;
+      text-align: center;
+      font-size: 20px;
+    
+    }
+
+
+
+  }
+  
+ 
 }
 
-.tutorial {
-  height: auto;
-  display: flex;
-  width: 100%;
-  border-radius: 20px;
-  padding: 40px;
-  gap: 100px;
-}
 
-.video {
-  gap: 40px;
-  justify-content: left;
-}
 
-/* responsive */
+   /* Tienda */
+
+   .buscador{
+    display: flex;
+    padding: 50px;
+    background-color: #F0ECCF;
+    align-items: center;
+    justify-content: center;
+      form{
+        padding: 5px;
+        
+
+        input{
+          position: flex;
+          border-radius: 10px;
+          border: white;
+
+        }
+        #busqueda{
+          
+          width: 500px;
+          height: 40px;
+        }
+        #boton{
+          width: 100px;
+          height: 40px;
+
+        }
+      }
+    }
+
+   .container-pan{
+    display: flex;
+    padding: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+  
+      .card {
+        position: flex;
+        background-color: #ecebdb;
+        padding: 50px;
+        margin: 20px;
+        text-align: center;
+
+        img{
+          width: 200px;
+          height: 200px;
+          border-radius: 100px;
+        }
+        button{
+          
+          border-radius: 5px;
+          margin: 10px;
+          padding: 2px;
+
+        }
+      }
+
+
+
+   }
+
+
+   /* responsive */
 
 @media (max-width: 768px) {
   nav .menu {
@@ -292,22 +418,229 @@ nav {
       height: 100%;
     }
   }
-}
+
 
   .container-info {
     height: auto;
     width: 100%;
   }
-
+  
   /* video */
 
-  .video iframe {
+
+      
+  iframe{
+    animation-duration: 4s;
+    animation-name: aparecer;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes aparecer {
+    0%{
+      opacity: 0,5;
+    }
+    100%{
+      opacity: 1;
+    }
+  } 
+
+
+  /*buscador*/
+
+
+  
+  input{
+    position: flex;
+    border-radius: 10px;
+    border: white;
+
+  }
+  #busqueda{
+    
     width: 200px;
-    height: 200px;
+    height: 40px;
+  }
+  #boton{
+    width: 25px;
+    height: 40px;
+
   }
 
-  .container-footer {
-    font-size: 20px;
-    gap: 2px;
+
+  .grid {
+    
+    margin: 20px;
+    padding: 40px;
+    grid-template-columns: 300px 200px ;
+    grid-template-rows:     200px 200px;
+    grid-template-areas: "imagen  vision " 
+                          "imagen  mision ";
+    justify-content: center;
+    grid-auto-flow: column;
+
+}
+
+  .container-footer{
+  @include color-invertido();
+}
+}
+
+@media (max-width: 425px){
+
+/*tutoriales*/
+
+.container-videos{
+
+
+  .descripcion{
+
+    font-size: small;
+
+  }
+  
+}
+
+
+.buscador{
+  
+    form{
+      padding: 5px;
+      text-align: center;
+      
+      
+
+      input{
+        position: flex;
+        border-radius: 10px;
+        border: white;
+
+      }
+      #busqueda{
+        
+        width: 200px;
+        height: 30px;
+      }
+      #boton{
+        width: 100px;
+        height: 30px;
+        margin: 20px;
+
+
+      }
+    }
   }
 
+
+  .grid {
+    
+    margin: 20px;
+    padding: 40px;
+    grid-template-columns: 200px 200px ;
+    grid-template-rows:     200px 200px 100px;
+    grid-template-areas: "imagen  vision " 
+                          "imagen  mision ";
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    grid-auto-flow: column;
+  
+  
+  .grid-sect-1 {
+  grid-area:imagen;
+  background-size: cover;
+  background-image: url(../assets/img/nosotros.png);
+  
+  }
+  
+  .grid-sect-2{
+    grid-area: vision;
+    background-color: #d4cff0;
+    justify-content: center;
+    margin: 4px;
+    align-items: center;
+  
+    h3{
+      text-align: center;
+      margin: 20px;
+    }
+    p{
+      padding: 10px;
+      border-radius: 40px;
+      text-align: center;
+  
+    }
+  }
+  
+  .grid-sect-3{
+    grid-area: mision;
+    background-color: #d4cff0;
+    justify-content: center;
+    margin: 4px;
+    align-items: center;
+    
+  
+    h3{
+      text-align: center;
+      margin: 20px;
+  
+    }
+    p{
+      padding: 10px;
+      border-radius: 40px;
+      text-align: center;
+  
+    }
+  
+  
+  }
+  }
+
+
+}
+
+
+@media (max-width: 375px){
+
+.container-deliverys{
+
+  .container-delivery{
+
+    .delivery-1{
+
+      img{
+        width: 200px;
+      }
+    }
+  }
+}
+
+
+.container-titulo{
+
+  text-align: center;
+}
+.grid {
+    
+  margin: 20px;
+  padding: 40px;
+  grid-template-columns: 200px;
+  grid-template-rows:     200px 200px 200px;
+  grid-template-areas: "imagen" 
+                        "imagen"
+                        "vision"
+                        "mision";
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+  grid-auto-flow: column;
+
+}
+}
+
+
+
+
+
+
+
+
+
+  
